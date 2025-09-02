@@ -1,0 +1,139 @@
+#incineroar {
+    background: #5c393900 !important;
+    background: linear-gradient(90deg, rgb(109, 63, 63) 0%, rgb(46, 46, 46) 100%) !important;
+    h2,a,p {
+        color: #c55656;
+        &:hover {
+            color: #bd7d7d;
+        }
+    }
+}
+
+/* este estilo sobrescreve o anterior ^^ */
+#incineroar p {
+    transition: all 0.3s ease-in-out;
+    color: #c55656;
+    &:hover {
+        cursor: pointer;
+        color: #00ff15;
+    }
+}
+
+#aggron {
+    background: #5f252500 !important;
+    background: linear-gradient(90deg, rgb(31, 31, 31) 0%, rgb(139, 136, 151) 100%) !important;
+    /* o dentro do html sobrescreve  vv*/
+    h2,a,p {
+        color: #ff0000;
+    }
+}
+
+.header {
+    background: #4d4d4d;
+    background: linear-gradient(90deg, rgb(44, 42, 48) 0%, rgb(39, 39, 48) 100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    gap: 2rem;
+}
+
+nav {
+    font-size: 1.25rem;
+    font-style: italic;
+    background-color: #2b2828;
+    padding: 10px;
+    border-radius: 12px;
+    position: relative;
+}
+nav::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 12px;
+    background: linear-gradient(90deg, rgba(122,112,214,0.15) 0%, rgba(100,88,211,0.15) 100%);
+    z-index: 0;
+}
+nav > a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+nav > a:hover {
+    color: #7a70d6 !important;
+}
+/* conflito de prioridade definido pelo important */
+nav a:hover {
+    color: #fff;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 1.85rem;
+    color: #7a70d6;
+}
+
+.subTitle {
+    font-size: 1.7rem;
+    color: #6458d3;
+}
+
+.secao {
+    height: 100vh;
+    background: #2E2C2C00;
+    background: linear-gradient(90deg, rgb(20, 18, 26) 0%, rgb(44, 42, 53) 100%);   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+        text-align: center;
+        font-weight: 600;
+        color: #7a70d6;
+        font-size: 1.45rem;
+        margin: 10px;
+    }
+}
+
+.imagem-container {
+    border-radius: 0.7rem;
+    cursor: pointer;
+
+    img {
+        max-width: 800px;
+        margin-top: 0.5rem;
+        object-fit: cover;
+        border-radius: 1rem;
+    }
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    background: #4d4d4d;
+    background: linear-gradient(90deg, rgb(44, 42, 48) 0%, rgb(39, 39, 48) 100%);
+    opacity: 0.95;
+}
+
+.secao + .header {
+    border-top: 2px solid #7a70d6;
+}
+
+.secao + .secao {
+    border-top: 2px solid #6d6d6d;
+}
+
+.secao + .footer {
+    border-top: 2px solid #7a70d6;
+}
+
+.secao ~ .footer {
+    box-shadow: 0 -4px 16px rgba(122,112,214,0.15);
+}

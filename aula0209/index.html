@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemons Enzo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        scroll-behavior: smooth;
+        font-family: "Poppins", sans-serif;
+
+        a {
+            color: #6458d3;
+            text-decoration: none;
+            transition: 0.3s ease;
+            margin-bottom: 4px;
+            &:hover {
+                color: #b9abab;
+            }
+        }
+    }
+
+    /* sobrescrevendo */
+    #aggron p {
+        color: #c8ff00 ;
+    }
+</style>
+<body>
+    <header class="header">
+        <h1 class="title"> Pokémons do Enzo</h1>
+        <nav>
+            <a href="#incineroar">Incineroar</a>
+            <a href="#aggron">Aggron</a>
+          </nav>
+    </header>
+
+    <section id="incineroar" class="secao" >
+        <h2 class="subTitle"> 
+            <a href="https://www.google.com/search?q=incineroar" target="_blank">
+                Incineroar - o Goat 
+            </a>
+        </h2>
+            
+        <div class="imagem-container">
+            <img alt="imagem incineroar" src="https://facts.net/wp-content/uploads/2023/07/15-facts-about-incineroar-1689481320.jpg" class="imagem"/>
+        </div>
+        <p>Gosto muito desse pokémon</p>
+        <p>Ele também é muito forte competitivamente</p>
+    </section>
+
+    <section id="aggron" class="secao" >
+        <h2 class="subTitle"> 
+            <!-- conflito de cor ( o inline sobrescreve )-->
+            <a href="https://www.google.com/search?q=aggron" target="_blank" style="color: #fff;">
+                Aggron - guardião das montanhas 
+            </a>
+        </h2>
+        <div class="imagem-container">
+            <img 
+            src="https://staticg.sportskeeda.com/editor/2021/11/b741e-16371827986649-1920.jpg" 
+            class="imagem"
+            alt="imagem aggron"
+            />
+        </div>
+        <!-- esse sobrescreve os outros -->
+        <p style="color: #fff;">Gosto muito desse pokémon</p>
+        <p style="color: #fff;">Ele também é muito fraco competitivamente</p>
+    </section>
+
+    <footer class="footer">
+        <h1 class="title"> 
+            <a href="https://www.google.com" target="_blank">
+                Entre em contato!
+            </a>
+        </h1>
+    </footer>
+</body>
+
+
+
