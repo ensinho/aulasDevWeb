@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos de Pokémon</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Jogos de Pokémon</h1>
+        
+        <div class="input-container">
+            <input type="text" id="input"  placeholder="Adicionar algo">
+            <button onclick="addItem()">Add jogo</button>
+        </div>
+
+        <ul id="list"></ul>
+    </div>
+
+    <script>
+
+        const input = document.getElementById("input");
+
+        input.addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                addItem()
+            }
+        });
+
+        function loadData() {
+            const lista = JSON.parse(localStorage.getItem('lista')) || [];
+            const list = document.getElementById('list');
+            list.innerHTML = ''; 
+
+            lista.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.classList.add('list-item');
+                li.innerHTML = `
+                    <label class="list-name">
+                        <input type="checkbox" onclick="toggleCompleted(${index})" ${item.completed ? 'checked' : ''}>
+                        ${item.name}
+                    </label>
+                    <button class="delete" onclick="deletarItem(${index})">Excluir</button>
+                `;
+                if (item.completed) {
+                    li.classList.add('completed');
+                }
+                list.appendChild(li);
+            });
+        }
+
+        function addItem() {
+            const input = document.getElementById('input');
+            const nome = input.value.trim();
+
+            if (nome) {
+                const lista = JSON.parse(localStorage.getItem('lista')) || [];
+                lista.push({ name: nome, completed: false });
+                localStorage.setItem('lista', JSON.stringify(lista));
+                input.value = '';
+                loadData(); 
+            }
+        }
+
+        function deletarItem(index) {
+            const lista = JSON.parse(localStorage.getItem('lista')) || [];
+            lista.splice(index, 1);
+            localStorage.setItem('lista', JSON.stringify(lista));
+            loadData(); 
+        }
+
+        function toggleCompleted(index) {
+            const lista = JSON.parse(localStorage.getItem('lista')) || [];
+            lista[index].completed = !lista[index].completed;
+            localStorage.setItem('lista', JSON.stringify(lista));
+            loadData(); 
+        }
+
+        loadData();
+    </script>
+
+</body>
+</html>
